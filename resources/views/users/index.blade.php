@@ -1,6 +1,7 @@
 User list
 <div>
     <a href="{{ route('users.create') }}">Create New User</a>
+    <a href="{{ route('users.export-latest') }}">Export CSV</a>
     <table>
         <thead>
             <tr>

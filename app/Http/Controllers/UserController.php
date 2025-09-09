@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\ValidatedInput;
 use App\Models\User;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,5 +57,9 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('error', 'User not found.');
         }
         return view('users.view', ['user' => $getUser]);
+    }
+      public function exportCSV(Request $request)
+    {
+        Artisan::call('users:export');
     }
 }
